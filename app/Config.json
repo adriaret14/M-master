@@ -1,0 +1,14 @@
+{
+	"dbconf":{
+		"driver":"mysql",
+		"dbname":"freddyanuncios",
+		"dbhost":"localhost",
+		"dbuser":"appfretanun",
+		"dbpass":"1234"
+	},
+	"app":{
+		"title":"M",
+		"version":"0.1"
+	}
+
+}

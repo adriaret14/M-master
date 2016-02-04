@@ -1,0 +1,68 @@
+*{
+	margin:0;
+	padding:0;
+}
+
+body{
+	background-color: #C8DAE0;
+	font-family: "Arial",Sans-serif;
+}
+header{
+	background-color: #365E6B;
+	height:20vh;
+}
+.container{
+	display: block;
+	background-color: #2F3233;
+	height:75vh;
+	color:#E8EDED;
+
+}
+#login_div{
+	text-align:right;
+	margin-right:2%;
+}
+a{
+	font-size:10px;
+	color:#E6EFF2;
+}
+input{
+	margin:4px;
+}
+h1{
+	text-align:center;
+}
+h2{
+	text-align:center;
+}
+#registro{
+	margin-left:22px;
+	border:1px solid;
+	border-color:yellow;
+	width:400px;
+	height:400px;
+}
+#registro h2{
+	text-align:left;
+	margin-left:10px;
+}
+#registro label{
+	margin-left:8px;
+	clear:both;
+	float:left;
+}
+#registro input{
+	clear:both;
+	float:right;
+}
+p{
+	margin:10px;
+}
+.but{
+	border-radius:16px;
+	padding:4px;
+}
+footer{
+	background-color: #365E6B;
+	height:5vh;
+}
