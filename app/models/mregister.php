@@ -18,6 +18,7 @@
 
 			     if($this->rowCount()==1)
 			     {
+			     	echo "entramos";
 			           	//Session::set('islogged',TRUE);
 			           	//Session::set('usuario',$usuario);
 			           	//return TRUE;
@@ -42,7 +43,30 @@
 			    		else
 			    		{
 			    			//SE REGISTRARÁ
-			    			//Hay que hacer un insert en la tala usuarios para completar el registro
+			    			/*$sql_aux="SELECT * FROM ciudades WHERE NOMBRE=?";
+			    			$this->query($sql_aux);
+			    			$this->bind(1, $ciudad);
+			    			$this->execute();
+			    			if($this->rowCount()==1)
+			     			{
+			     				$aux1="SELECT id_ciudad FROM ciudades WHERE NOMBRE=?";
+			     			}
+			     			else
+			     			{
+			     				$sql3="INSERT INTO ciudades VALUES (".$ciudad.", 1)";
+			    				$aux1=$this->lastInsertId();
+			     			}
+
+			    			$sql3="INSERT INTO ciudades VALUES (".$ciudad.", 1)";*/
+			    			$sql4="INSERT INTO usuarios (nickname, email, nombre, apellidos, contra, telefono, ciudad) VALUES (?, ?, ?, ?, ?, ?, 1)";
+			    			$this->query($sql4);
+			    			$this->bind(1,$nick);
+			    			$this->bind(2,$mail);
+			    			$this->bind(3,$nombre);
+			    			$this->bind(4,$apellidos);
+			    			$this->bind(5,$pass);
+			    			$this->bind(6,$telf);
+			    			$this->execute();
 
 			    			return TRUE;
 			    		}

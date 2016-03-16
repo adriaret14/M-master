@@ -15,8 +15,11 @@
      $this->bind(2,$password);
      $this->execute();
      if($this->rowCount()==1){
+          $datos=$this->single();
            Session::set('islogged',TRUE);
            Session::set('usuario',$usuario);
+           Session::set('id_usr', $datos[0]['id_usuario']);
+           Session::set('tipo', $datos[0]['Rol']);
            return TRUE;
      }
      else {
@@ -25,7 +28,8 @@
     }catch(PDOException $e){
        echo "Error:".$e->getMessage();
    	}
-	}	
+	}
+ 
 
  
 	}

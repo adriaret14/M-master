@@ -1,0 +1,14 @@
+*{
+	color:black;
+}
+body{
+	background-color:grey;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+}
+#entrar{
+	width:20%;
+	height:40vh;
+	background-color:red;
+}

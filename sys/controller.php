@@ -26,4 +26,12 @@
 				echo json_encode($output);
 			}
 		}
+		protected function ajax_set($output)
+		{
+		      $output= json_encode($output); 
+		      // netegem buffer de sortida
+
+		      ob_clean();
+		      echo $output;
+		}
 	}

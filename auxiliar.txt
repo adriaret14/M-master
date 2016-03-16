@@ -1,0 +1,13 @@
+<h1> View -<?= $title; ?></h1>
+		<div id="login_div">
+		<form  action="home/login" method="post">
+		User:<input type="text" name="usuario"><br>
+		Password:<input type="password" name="password"><br>
+		<a href="#">Forgot your password?</a><input class="but" type="button" value="Register"><input class="but" type="submit" value="Log In">
+		</form>
+		<form  class="ajax" name="formlog" method="post" action="<?=APP_W.'home/login'; ?>">
+		User:<input type="text" name="usuario"><br>
+		Password:<input type="password" name="password"><br>
+		<a href="#">Forgot your password?</a><a href="<?=APP_W.'register'; ?>"><input id="regi" class="but" type="button" value="Register"></a><input class="but" type="submit" value="Log In">
+		</form>
+		</div>

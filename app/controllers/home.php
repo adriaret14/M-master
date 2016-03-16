@@ -14,19 +14,33 @@
 		function home(){
 			//Coder::codear($this->conf);
 	}
-		function login(){
-   		if(isset($_POST['usuario'])){
+
+ 	function login(){
+   if(isset($_POST['usuario'])){
          $usuario=filter_input(INPUT_POST, 'usuario', FILTER_SANITIZE_STRING);
-         $password=filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
+         $password=filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING); 
          $user=$this->model->login($usuario,$password);
          if ($user== TRUE){
-               // cap a la pàgina principal
-               header('Location:'.APP_W.'home');
-         }
-         else{
-             // no hi és l'usuari, cal registrar
-               header('Location:'.APP_W.'register');
-             }
- 	  }
- 	}
+          //Comprobar si el usuario es admin o no
+              if($_SESSION['tipo']==1)
+              {
+                $output=array('redirect'=>APP_W.'dashboard');
+                $this->ajax_set($output);
+              }
+              else
+              {
+                $output=array('redirect'=>APP_W.'home2');
+                $this->ajax_set($output);
+              }
+          }
+          else{ 
+             $output=array('redirect'=>APP_W.'register');
+             $this->ajax_set($output);
+          }
+    }
+  }
+  function logout(){
+    Session::destroy();
+    header('Location:'.APP_W.'home');
+  }
 }

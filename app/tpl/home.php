@@ -1,7 +1,11 @@
+<?php
+	if(!isset($_SESSION['user']))
+	{
+		include'cover.php';
+	}
+	else
+	{
+		include 'home2.php';
+	}
+?>
 
-	<div class="container">
-		<article>
-			<h2>Section M-framework</h2>
-			<p>Hello world</p>
-		</article>
-	</div>
