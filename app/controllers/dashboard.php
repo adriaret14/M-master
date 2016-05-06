@@ -14,8 +14,10 @@
 		function home(){
 			//Coder::codear($this->conf);
 		}
+
 		function nu()
 		{
+			
 			if((!empty($_POST['nick'])) && (!empty($_POST['mail'])) && (!empty($_POST['pass'])) && (!empty($_POST['nombre'])) && (!empty($_POST['apellidos'])) && (!empty($_POST['telf'])) && (!empty($_POST['ciudad']))  && (!empty($_POST['tipo'])))
 			{
 				$nick=filter_input(INPUT_POST, 'nick', FILTER_SANITIZE_STRING);
@@ -29,9 +31,10 @@
 
 
 
-				$this->model->nu($nick,$mail,$pass,$nombre,$apellidos,$telf,$ciudad,$tipo);
+				$user=$this->model->nu($nick,$mail,$pass,$nombre,$apellidos,$telf,$ciudad,$tipo);
 
-				/*if ($user== TRUE){
+
+				if ($user== TRUE){
                	// se ha registrado correctamente	
               	//header('Location:'.APP_W.'home');
               	$output=array('redirect'=>APP_W.'dashboard');
@@ -42,15 +45,32 @@
                	//header('Location:'.APP_W.'register');
         		$output=array('redirect'=>APP_W.'dashboard');
              	$this->ajax_set($output);
-             }*/
+             	}
 			}
 		}
 		function du()
 		{
-			if(!empty($_POST['dusearch']))
+			if(!empty($_POST['id']))
 			{
-				$nick=filter_input(INPUT_POST, 'dusearch', FILTER_SANITIZE_STRING);
-				$this->model->du($nick);
+				$idd=filter_input(INPUT_POST, 'id', FILTER_SANITIZE_STRING);
+				
+
+				$this->model->du($idd);
+
+
+				if ($user== TRUE){
+               	// se ha eliminado correctamente	
+              	//header('Location:'.APP_W.'home');
+              	$output=array('redirect'=>APP_W.'dashboard');
+             	$this->ajax_set($output);
+         		}
+        		else{
+             	// no se ha podido hacer el delete(no se encuentra id) 
+               	//header('Location:'.APP_W.'register');
+        		$output=array('redirect'=>APP_W.'dashboard');
+             	$this->ajax_set($output);
+             	}
+
 			}
 		}
 		function uu()
@@ -67,6 +87,30 @@
 			$ciudad=filter_input(INPUT_POST, 'ciudad', FILTER_SANITIZE_STRING);
 			$tipo=filter_input(INPUT_POST, 'tipo', FILTER_SANITIZE_STRING);
 			
-			$this->model->uu($busc,$nick,$mail,$pass,$nombre,$apellidos,$telf,$ciudad,$tipo);
+			$user=$this->model->uu($busc,$nick,$mail,$pass,$nombre,$apellidos,$telf,$ciudad,$tipo);
+
+			if ($user== TRUE){
+               	// se ha registrado correctamente	
+              	//header('Location:'.APP_W.'home');
+              	$output=array('redirect'=>APP_W.'dashboard');
+             	$this->ajax_set($output);
+         		}
+        		else{
+             	// no se ha podido hacer el registro(email ya en uso, nicknane ya en uso,...) 
+               	//header('Location:'.APP_W.'register');
+        		$output=array('redirect'=>APP_W.'dashboard');
+             	$this->ajax_set($output);
+             	}
+		}
+		function mostrar()
+		{
+			$resultado=$this->model->mostrar();
+			if($resultado!=null)
+			{
+				//echo $resultado;
+				//$output=array($resultado);
+				$this->ajax_set($resultado);
+				//var_dump($resultado);
+			}
 		}
 	}

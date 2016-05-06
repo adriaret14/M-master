@@ -14,6 +14,7 @@
 			    if($this->rowCount()==1)
 			    {
 			    	//El nick ya existe
+			    	return FALSE;
 			    }
 			    else
 			    {
@@ -24,6 +25,7 @@
 			    	if($this->rowCount()==1)
 			    	{
 			    		//El email ya existe
+			    		return FALSE;
 			    	}
 			    	else
 			    	{
@@ -37,6 +39,8 @@
 			    		$this->bind(6,$telf);
 			    		$this->bind(7,$tipo);
 			    		$this->execute();
+
+			    		return TRUE;
 			    	}
 			    }
 
@@ -45,13 +49,26 @@
 		       echo "Error:".$e->getMessage();
 		   	}
 		}
-		function du($nick)
+		function du($idd)
 		{
 			try {
-				$sql="DELETE FROM usuarios WHERE nickname=?";
-				$this->query($sql);
-	     		$this->bind(1,$nick);
-	     		$this->execute();
+				$sql="SELECT * FROM usuarios WHERE id_usuario=?";
+			    $this->query($sql);
+			    $this->bind(1,$idd);
+			    $this->execute();
+			    if($this->rowCount()==1)
+			    {
+			    	//El nick ya existe
+			    	$sql2="DELETE FROM usuarios WHERE id_usuario=?";
+					$this->query($sql2);
+		     		$this->bind(1,$idd);
+		     		$this->execute();
+			    }
+			    else
+			    {
+			    	return FALSE;
+			    }
+				
 			} 
 			catch(PDOException $e){
 		       echo "Error:".$e->getMessage();
@@ -124,10 +141,22 @@
 					$this->bind(2,$busc);
 					$this->execute();
 				}
-				
+				return TRUE;
 			}
 			catch(PDOException $e){
 		       echo "Error:".$e->getMessage();
 		   	}
+		}
+		function mostrar()
+		{
+			$sql="SELECT * FROM usuarios";
+			$this->query($sql);
+			$this->execute();
+			if($this->rowCount()>0)
+			{
+				//Hay usuarios que mostrar
+				return $this->resultset();
+			}
+			//$this->resultset();
 		}
 	}

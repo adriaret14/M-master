@@ -16,6 +16,12 @@
 	/*color:#5ACC61;*/
 	/*color:#D98938;*/
 }
+#logo a{
+	font-size:20px;
+}
+#logo a:hover{
+	color:#EBEDED;
+}
 body{
 	background-color: #C8DAE0;
 	font-family: "Arial",Sans-serif;
@@ -46,18 +52,32 @@ header a:hover{
 	height:90vh;
 	color:#2D3030;
 	display:flex;
-	align-items:center;
-	justify:content:center;
+	align-items:flex-start;
+	justify:content:space-around;
 
 }
 .container2{
 	display: block;
 	background-color:#EBEDED;
+	width:100%;
 	height:90vh;
 	color:#2D3030;
 	display:flex;
 	align-items:center;
 	justify-content:center;
+
+}
+.container3{
+	display: block;
+	background-color:#EBEDED;
+	height:90vh;
+	width:85%;
+	color:#2D3030;
+	display:flex;
+	flex-wrap:wrap;
+	align-items:flex-start;
+	justify:content:space-around;
+	overflow:scroll;
 
 }
 #login_div{
@@ -193,8 +213,20 @@ input[type="email"]{
 	color:#EBEDED;
 }
 article{
-	width:85%;
-	height:90vh;
+	width:18%;
+	height:43vh;
+	background-color:#C9C9C9;
+	margin-left:1%;
+	margin-top:1vh;
+	display:flex;
+	flex-direction:column;
+	align-items:center;
+	justify-content:center;
+}
+article img{
+	width:80%;
+	max-width:80%;
+	height:15vh;
 }
 #menu ul{
 	list-style:none;
@@ -247,7 +279,7 @@ textarea{
 }
 #cd1{
 	/*background-color:red;*/
-	width:30%;
+	width:25%;
 	height:90vh;
 	display:flex;
 	flex-direction:column;
@@ -256,7 +288,7 @@ textarea{
 }
 #cd2{
 	/*background-color:blue;*/
-	width:30%;
+	width:50%;
 	height:90vh;
 	display:flex;
 	flex-direction:column;
@@ -265,10 +297,19 @@ textarea{
 }
 #cd3{
 	/*background-color:green;*/
-	width:30%;
+	width:25%;
 	height:90vh;
 	display:flex;
 	flex-direction:column;
 	justify-content:flex-start;
 	align-items:center;
+}
+.likes{
+	text-decoration:none;
+	color:green;
+	font-size:18px;
+}
+.likes:hover{
+	color:#009933;
+	font-size:20px;
 }

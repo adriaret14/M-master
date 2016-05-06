@@ -1,5 +1,4 @@
-<div class="container2">
-	<div id="cd1">
+	<!--<div id="cd1">
 		<h3>Create new user</h3>
 		<form  class="anu" name="formanu" method="post" action="<?=APP_W.'dashboard/nu'; ?>">
 		Nickname<input type="text" id="nick" name="nick">
@@ -13,16 +12,13 @@
 		<input type="Submit" id="ins" value="New user">
 		</form>
 	</div>
-
 	<div id="cd2">
-		<div id="dtabla">
-
-		</div>
-		<div id="contr">
-			<input type="button" id="bborrar" value="Borrar">
-		</div>
+		<h3>Delete user</h3>
+		<form  class="adu" name="formadu" method="post" action="<?=APP_W.'dashboard/du'; ?>">
+		Nickname of the user to delete<input type="text" id="uusearch" name="dusearch">
+		<input type="Submit" id="del" value="Delete user">
+		</form>
 	</div>
-
 	<div id="cd3">
 		<h3>Update user</h3>
 		<form  class="auu" name="formauu" method="post" action="<?=APP_W.'dashboard/uu'; ?>">
@@ -38,6 +34,4 @@
 		Tipo<br><input type="text" id="tipo" name="tipo">
 		<input type="Submit" id="upd" value="Update user">
 		</form>
-	</div>
-
-</div>
+	</div>-->

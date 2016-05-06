@@ -23,20 +23,54 @@
 			$t=filter_input(INPUT_POST, 't_anun', FILTER_SANITIZE_STRING);
 			$d=filter_input(INPUT_POST, 'd_anun', FILTER_SANITIZE_STRING);
 			$p=filter_input(INPUT_POST, 'p_anun', FILTER_SANITIZE_STRING);
-			$anun=$this->model->crear($t,$d,$p);
+			$f=filter_input(INPUT_POST, 'f_anun', FILTER_SANITIZE_STRING);
+			$anun=$this->model->crear($t,$d,$p,$f);
 			if($anun == TRUE)
 			{
 				//insertado correctamente
 				header('Location:'.APP_W.'home2');
 				//$this->json_out(array('msg'=>'ok'));
+				/*$output=array('redirect'=>APP_W.'home2');
+             	$this->ajax_set($output);*/
 			}
 			else
 			{
 				//no insertado
-				echo "ERROR AL INSERTAR";
+				//echo "ERROR AL INSERTAR";
 				header('Location:'.APP_W.'home2');
+				/*$output=array('redirect'=>APP_W.'home2');
+             	$this->ajax_set($output);*/
 
 			}
+		}
+	}
+	function mostrar()
+	{
+		$resultado=$this->model->mostrar();
+		if($resultado!=null)
+		{
+			//echo $resultado;
+			//$output=array($resultado);
+			$this->ajax_set($resultado);
+			//var_dump($resultado);
+		}
+	}
+	function valorar(){
+		$x1=$_POST['id_a'];
+		$x2=$_SESSION['id_usr'];
+
+		$valora=$this->model->valorar($x1, $x2);
+
+		if($valora == TRUE)
+		{
+				//insertado correctamente
+				//header('Location:'.APP_W.'home2');
+				//$this->json_out(array('msg'=>'ok'));
+				$this->ajax_set(1);
+		}
+		else
+		{
+			$this->ajax_set(2);
 		}
 	}
 		
