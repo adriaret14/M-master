@@ -150,7 +150,7 @@ $(document).ready(function(){
       success:function(output)
       {
         console.log(output);
-        //window.location.href=output.redirect;
+        window.location.href=output.redirect;
       }
     });
     return false;

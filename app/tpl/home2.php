@@ -1,7 +1,16 @@
 	<div class="container">
 		<div id="menu">
 			<ul>
-				<a id="ancla_m1" href="#"><img src="<?=APP_W.'pub/img/mas.png'; ?>"><li>Post new product</li></a>
+				<?php
+				if(!isset($_SESSION['id_usr']))
+				{
+					echo "Inicia sesion para postear";
+				}
+				else
+				{
+					echo '<a id="ancla_m1" href="#"><li>Post new product</li></a>';
+				}
+				?>
 				<a href="#"><img src="<?=APP_W.'pub/img/msg.png'; ?>"><li>Messages</li></a>
 				<a href="#"><img src="<?=APP_W.'pub/img/notif.png'; ?>"><li>Alerts</li></a>
 				<a href="#"><img src="<?=APP_W.'pub/img/help.png'; ?>"><li>Help</li></a>
