@@ -150,7 +150,19 @@ $(document).ready(function(){
       success:function(output)
       {
         console.log(output);
-        window.location.href=output.redirect;
+        x=JSON.stringify(output);
+        console.log(x);
+        if(x=='{"redirect":"/M-master/home"}')
+        {
+          alert("Te has registrado correctamente");
+          window.location.href=output.redirect;
+        }
+        else
+        {
+          alert("No se ha podido completar el registro puesto que tus datos ya estaban registrados.");
+          window.location.href=output.redirect;
+        }
+        //window.location.href=output.redirect;
       }
     });
     return false;
